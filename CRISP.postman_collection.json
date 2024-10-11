@@ -1,0 +1,948 @@
+{
+	"info": {
+		"_postman_id": "2158deb1-cb72-4d58-867f-c59b9d143976",
+		"name": "CRISP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38027538"
+	},
+	"item": [
+		{
+			"name": "PatientDetails-Valid ID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var idnumber = 111;",
+							"",
+							"pm.variables.set(\"idnumber\",idnumber);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"111\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Id={{idnumber}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "{{idnumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Invalid ID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var idnumber = 5555;",
+							"",
+							"pm.variables.set(\"idnumber\",idnumber);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Id={{idnumber}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "{{idnumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Blank ID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var idnumber = ",
+							"",
+							"pm.variables.set(\"idnumber\",idnumber);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Id={{idnumber}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Id",
+							"value": "{{idnumber}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Valid Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientname=\"Jack\";",
+							"",
+							"pm.variables.set(\"patientname\",patientname);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Jack\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Name={{patientname}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "{{patientname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Invalid Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientname=\"Jenny\";",
+							"",
+							"pm.variables.set(\"patientname\",patientname);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Name={{patientname}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "{{patientname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Blank Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientname=\"\";",
+							"",
+							"pm.variables.set(\"patientname\",patientname);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Name={{patientname}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "{{patientname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Valid DOB",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientdob=\"1966-04-01\";",
+							"",
+							"pm.variables.set(\"patientdob\",patientdob);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"1966-04-01\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?DateOfBirth={{patientdob}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "DateOfBirth",
+							"value": "{{patientdob}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Invalid DOB",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientdob=\"01/04/1966\";",
+							"",
+							"pm.variables.set(\"patientdob\",patientdob);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?DateOfBirth={{patientdob}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "DateOfBirth",
+							"value": "{{patientdob}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Blank DOB",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientdob=\"\";",
+							"",
+							"pm.variables.set(\"patientdob\",patientdob);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?DateOfBirth={{patientdob}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "DateOfBirth",
+							"value": "{{patientdob}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Valid Address",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientaddress=\"CA State\";",
+							"",
+							"pm.variables.set(\"patientaddress\",patientaddress);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"CA State\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Address={{patientaddress}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Address",
+							"value": "{{patientaddress}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Invalid Address",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientaddress=\"Mississippi\";",
+							"",
+							"pm.variables.set(\"patientaddress\",patientaddress);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Address={{patientaddress}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Address",
+							"value": "{{patientaddress}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PatientDetails-Blank Address",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//postman variables",
+							"var patientaddress=\"\";",
+							"",
+							"pm.variables.set(\"patientaddress\",patientaddress);",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"/*",
+							"pm.test(\"response body should be correct\", function() {",
+							"  var data = pm.response.json();",
+							"  console.log(data);",
+							"  pm.expect(data.Id).to.include(111);",
+							"});*/"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/patients/query/?Address={{patientaddress}}",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"patients",
+						"query",
+						""
+					],
+					"query": [
+						{
+							"key": "Address",
+							"value": "{{patientaddress}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": ""
+		}
+	]
+}
