@@ -34,7 +34,7 @@ jobs:
         run: npm install -g newman newman-reporter-htmlextra
 
       - name: Execute postman collection
-        run: newman run Assignment.postman_collection.json -e QA.postman_environment.json -r htmlextra,cli
+        run: newman run CRISP.postman_collection.json -e QA.postman_environment.json -r htmlextra,cli
 
       - name: Archive HTML reports
         if: always() 
